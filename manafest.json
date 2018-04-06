@@ -1,5 +1,5 @@
 {
- "package": "SPAD",
+ "package": "SPAD1",
  "language": "python",
  "author": "UNH_Farmbot",
  "description": "Returns SPAD number of plant from photo",
