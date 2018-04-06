@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-'''Take a photo.
-Take a photo using a USB or Raspberry Pi camera.
+'''
+Take get SPAD Number
 '''
 
 
@@ -28,26 +28,14 @@ Take a photo using a USB or Raspberry Pi camera.
 # web-app. The Farmbot will send a 'start' signal to the Image processor. 
 #------------------------------------------------------------------------
 
-
-
-#
-# UPLOAD TO WEB APP
-#
-
-
-#
-# INSTALL TO WEB AP 
-#
-
 ### Import libraries ###
 import os
-from time import time, sleep
 import json
 import requests
 import serial
+
 ### Define Functions ###
-#ser = serial.Serial()
-log("Program Started","Success")
+
 ser =serial.Serial(
     "/dev/tty4",
     baudrate=9600,
@@ -62,10 +50,10 @@ ser =serial.Serial(
 init = '0xBF'
 
 def initiate():
-    log("Serial Initiated...","Success")
+    log("Serial Initiated...","success")
     ser.write(init)
     print(ser.read())
-    log("Message Sent", "Success")
+    log("Message Sent", "success")
     
 def farmware_api_url():
     major_version = int(os.getenv('FARMBOT_OS_VERSION', '0.0.0')[0])
@@ -79,7 +67,7 @@ def log(message, message_type):
     except KeyError:
         print(message)
     else:
-        log_message = '[take-photo] ' + str(message)
+        log_message = str(message)
         headers = {
             'Authorization': 'bearer {}'.format(os.environ['FARMWARE_TOKEN']),
             'content-type': "application/json"}
@@ -93,4 +81,4 @@ def log(message, message_type):
 
 if __name__ == '__main__':
         initiate()
-        #CAMERA = os.environ['camera']
+       
