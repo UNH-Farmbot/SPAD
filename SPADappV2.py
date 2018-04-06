@@ -47,6 +47,7 @@ import requests
 import serial
 ### Define Functions ###
 #ser = serial.Serial()
+log("Program Started","Success")
 ser =serial.Serial(
     "/dev/tty4",
     baudrate=9600,
@@ -61,10 +62,10 @@ ser =serial.Serial(
 init = '0xBF'
 
 def initiate():
-    log("Serial Initiated...","success")
+    log("Serial Initiated...","Success")
     ser.write(init)
     print(ser.read())
-    log("Message Sent", "success")
+    log("Message Sent", "Success")
     
 def farmware_api_url():
     major_version = int(os.getenv('FARMBOT_OS_VERSION', '0.0.0')[0])
