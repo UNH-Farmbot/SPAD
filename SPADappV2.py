@@ -32,7 +32,7 @@
 import os
 import json
 import requests
-import farmbot-serial
+#import serial
 
 ### Define Functions ###
 
