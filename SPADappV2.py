@@ -35,7 +35,7 @@ import requests
 import serial
 
 ### Define Functions ###
-log("Started Program", "success")
+
 ser =serial.Serial(
     "/dev/tty4",
     baudrate=9600,
@@ -80,5 +80,6 @@ def log(message, message_type):
         #### EXECUTE ####
 
 if __name__ == '__main__':
+        log("Started Program", "success")
         initiate()
        
