@@ -33,7 +33,7 @@ import os
 import json
 import requests
 #import serial
-import pip
+#import pip
 
 ### Define Functions ###
 
@@ -94,11 +94,22 @@ def install(package):
   
         #### EXECUTE ####
 
+def install_and_import(package):
+    import importlib
+    try:
+        importlib.import_module(package)
+    except ImportError:
+        import pip
+        pip.main(['install', package])
+    finally:
+        globals()[package] = importlib.import_module(package)
 
+
+install_and_import('transliterate')
 
 if __name__ == '__main__':
         log("Started Program", "success")
-        install('serial');
+        install_and_import('serial')
         log("Imported Serial", "success")
         #initiate()
        
