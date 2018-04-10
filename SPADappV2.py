@@ -74,7 +74,7 @@ def log(message, message_type):
 
 def install(name):
     subprocess.call(['pip', 'install', name])
-    import serial;
+   # import serial;
 #def log(message, message_type):
 #    'Send a message to the log.'
 #    try:
