@@ -105,7 +105,6 @@ def install_and_import(package):
         globals()[package] = importlib.import_module(package)
 
 
-install_and_import('transliterate')
 
 if __name__ == '__main__':
         log("Started Program", "success")
