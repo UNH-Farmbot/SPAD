@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-'''
-Take get SPAD Number
-'''
+#'''
+#Take get SPAD Number
+#'''
 
 
 #=======================================================================
@@ -35,7 +35,7 @@ import requests
 import serial
 
 ### Define Functions ###
-
+log("Started Program", "success")
 ser =serial.Serial(
     "/dev/tty4",
     baudrate=9600,
