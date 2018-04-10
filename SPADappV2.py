@@ -33,7 +33,7 @@ import os
 import json
 import requests
 #import serial
-#import subprocess
+import subprocess
 
 ### Define Functions ###
 
@@ -71,6 +71,10 @@ def log(message, message_type):
             'args': {
                 'message': message,
                 'message_type': message_type}}))
+
+def install(name):
+    subprocess.call(['pip', 'install', name])
+    import serial;
 #def log(message, message_type):
 #    'Send a message to the log.'
 #    try:
@@ -92,5 +96,6 @@ def log(message, message_type):
 
 if __name__ == '__main__':
         log("Started Program", "success")
+        install("serial");
         #initiate()
        
