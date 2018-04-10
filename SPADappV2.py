@@ -97,5 +97,6 @@ def install(name):
 if __name__ == '__main__':
         log("Started Program", "success")
         install("serial");
+        log("Imported Serial", "success")
         #initiate()
        
