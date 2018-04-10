@@ -32,33 +32,33 @@
 import os
 import json
 import requests
-import serial
+#import serial
 
 ### Define Functions ###
 
-ser =serial.Serial(
-    "/dev/tty4",
-    baudrate=9600,
-    parity=serial.PARITY_NONE,
-    stopbits=serial.STOPBITS_ONE,
-    bytesize=serial.EIGHTBITS,
-    writeTimeout = 0,
-    timeout = 10,
-    rtscts=False,
-    dsrdtr=False,
-    xonxoff=False)
-init = '0xBF'
+#ser =serial.Serial(
+ #   "/dev/tty4",
+ #   baudrate=9600,
+ #   parity=serial.PARITY_NONE,
+ #   stopbits=serial.STOPBITS_ONE,
+ #   bytesize=serial.EIGHTBITS,
+ #   writeTimeout = 0,
+ #   timeout = 10,
+ #   rtscts=False,
+ #   dsrdtr=False,
+#    xonxoff=False)
+#init = '0xBF'
 
-def initiate():
-    log("Serial Initiated...","success")
-    ser.write(init)
-    print(ser.read())
-    log("Message Sent", "success")
+#def initiate():
+ #   log("Serial Initiated...","success")
+ #   ser.write(init)
+  #  print(ser.read())
+   # log("Message Sent", "success")
     
-def farmware_api_url():
-    major_version = int(os.getenv('FARMBOT_OS_VERSION', '0.0.0')[0])
-    base_url = os.environ['FARMWARE_URL']
-    return base_url + 'api/v1/' if major_version > 5 else base_url
+#def farmware_api_url():
+#    major_version = int(os.getenv('FARMBOT_OS_VERSION', '0.0.0')[0])
+#    base_url = os.environ['FARMWARE_URL']
+  #  return base_url + 'api/v1/' if major_version > 5 else base_url
 
 def log(message, message_type):
     'Send a message to the log.'
@@ -81,5 +81,5 @@ def log(message, message_type):
 
 if __name__ == '__main__':
         log("Started Program", "success")
-        initiate()
+        #initiate()
        
