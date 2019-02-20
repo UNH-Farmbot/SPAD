@@ -60,55 +60,54 @@ import requests
 #    major_version = int(os.getenv('FARMBOT_OS_VERSION', '0.0.0')[0])
 #    base_url = os.environ['FARMWARE_URL']
   #  return base_url + 'api/v1/' if major_version > 5 else base_url
-def log(message, message_type):
-    'Send a send_message command to post a log to the Web App.'
-    requests.post(
-        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
-        headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
-                 'content-type': 'application/json'},
-        data=json.dumps({
-            'kind': 'send_message',
-            'args': {
-                'message': message,
-                'message_type': message_type}}))
-
-def install(package):
-    pip.main(['install', package])
-   # import serial;
 #def log(message, message_type):
-#    'Send a message to the log.'
-#    try:
- #       os.environ['FARMWARE_URL']
- #   except KeyError:
-  #      print(message)
-  #  else:
-   #     log_message = str(message)
-   #     headers = {
-    #        'Authorization': 'bearer {}'.format(os.environ['FARMWARE_TOKEN']),
-    #        'content-type': "application/json"}
-    #    payload = json.dumps(
-     #       {"kind": "send_message",
-     #        "args": {"message": log_message, "message_type": message_type}})
-       # requests.post(farmware_api_url() + 'celery_script',
-     #                 data=payload, headers=headers)
+#    'Send a send_message command to post a log to the Web App.'
+#    requests.post(
+#        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
+#        headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
+#                 'content-type': 'application/json'},
+#        data=json.dumps({
+#            'kind': 'send_message',
+#            'args': {
+#                'message': message,
+#                'message_type': message_type}}))
+
+#def install(package):
+#    pip.main(['install', package])
+   # import serial;
+def log(message, message_type): # 'Send a message to the log.'
+    try:
+        os.environ['FARMWARE_URL']
+    except KeyError:
+        print(message)
+    else:
+       log_message = str(message)
+       headers = {
+            'Authorization': 'bearer {}'.format(os.environ['FARMWARE_TOKEN']),
+            'content-type': "application/json"}
+       payload = json.dumps({
+           "kind": "send_message",
+           "args": {"message": log_message, "message_type": message_type}
+            })
+       requests.post(farmware_api_url() + 'celery_script', data=payload, headers=headers)
   
         #### EXECUTE ####
 
-def install_and_import(package):
-    import importlib
-    try:
-        importlib.import_module(package)
-    except ImportError:
-        import pip
-        pip.main(['install', package])
-    finally:
-        globals()[package] = importlib.import_module(package)
+#def install_and_import(package):
+#    import importlib
+#    try:
+#        importlib.import_module(package)
+#    except ImportError:
+#        import pip
+#        pip.main(['install', package])
+#    finally:
+#        globals()[package] = importlib.import_module(package)
 
 
 
 if __name__ == '__main__':
         log("Started Program", "success")
-        install_and_import('serial')
-        log("Imported Serial", "success")
-        #initiate()
+     #   install_and_import('serial')
+        log("Ending Program", "success")
+       # initiate()
        
