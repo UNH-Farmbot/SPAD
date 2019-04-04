@@ -10,9 +10,8 @@
 #                        UNHFarmbot Farmware        
 #
 #=======================================================================
-# Written by: Alfred Odierno, Amadou Tall, 
-#             Issam Benabdelkrim
-#
+# Written by: Alfred Odierno, Amadou Tall, Issam Benabdelkrim
+#             
 # Created: Ver. 0.1 04/04/19
 # Updated: ver. 0.2 
 #
