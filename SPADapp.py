@@ -52,25 +52,25 @@ def get_token():
 
 def Run_Routines():
 ### Call Image Capture subroutine ###
-	image=IC.capture()      # Takes picture with raspicamera. Saves 
+	#image=IC.capture()      # Takes picture with raspicamera. Saves 
 							# to local folder 'images' as current 
 							# '%datetime' +.jpg. Returns file+path.
 ### Call Pipeline ###
-	data=IP.process(image)  # Creates color data from plant image. 
+	#data=IP.process(image)  # Creates color data from plant image. 
 							# Saves to local folder 'plantdata' as 
 							# current '%datetime' +.txt. Returns 
 							# file+path.
 ### Call DataAnalysis.py ###
-	spad_number=IA.analysis(data)   # Estimates SPAD number using  
+	#spad_number=IA.analysis(data)   # Estimates SPAD number using  
 									# saves nuber to a txt file
 									# returns SPAD number
-	return (spad_number)
+	#return (spad_number)
 
 
 # Send the number to the FarmBot Web App logs.
-def send_it(s_number):
+def send_it(100):
 	headers = {'Authorization': 'Bearer ' + TOKEN,'content-type': 'application/json'}
-	data = json.dumps({'message': 'SPAD number:' + str(s_number)})
+	data = json.dumps({'message': 'SPAD number:' + str(100)})
 	response = requests.post('https://my.farmbot.io/api/logs', headers=headers, data=data)
 	print "sent it!"
 
